@@ -45,6 +45,7 @@ async def login_for_access_tokenin(
 # Logout
 @app.post('/logout')
 def log_out():
+    #fix the log out error
     return True
 
 
