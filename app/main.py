@@ -43,6 +43,9 @@ async def login_for_access_tokenin(
 
 
 # Logout
+@app.post('/logout')
+def log_out():
+    return True
 
 
 # USER ROUTES
