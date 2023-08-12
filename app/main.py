@@ -37,6 +37,7 @@ async def login_for_access_tokenin(
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
+    #fix login bug
 
     access_token = utils.create_access_token({"sub": str(user.get("id"))})
     return {"access_token": access_token, "token_type": "Bearer"}
@@ -129,12 +130,6 @@ def update_post(post: schemas.PostIn, id: int, db: Session = Depends(utils.get_d
         raise HTTPException(status_code=404, detail="Can't update empty post")
     else:
         return controllers.update_post(db, post, post_id=id)
-
-# Like post
-@app.put("/posts/{id}/like")
-def like_post(id: int, user_id: int, db: Session = Depends(utils.get_db)):
-    db_post = controllers.like_post(db, id, user_id)
-    return db_post
 
 
 # Delete post
