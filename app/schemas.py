@@ -36,7 +36,7 @@ class PostOut(BasePost):
     likes: str | None = None
     created_by: int
     created_at: datetime
-    
+
     class Config:
         orm_mode = True
 
@@ -53,12 +53,12 @@ class UserAuthenticate(BaseUser):
 
 class UserOut(BaseUser):
     id: int
-    posts: list[PostOut] = [] 
+    posts: list[PostOut] = []
     avatar: str
 
     class Config:
         orm_mode = True
-    
+
 # Comments
 class BaseComment(BaseModel):
     content = str
