@@ -1,0 +1,1 @@
+Social media posts API endpoint
