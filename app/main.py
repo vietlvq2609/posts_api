@@ -131,12 +131,6 @@ def update_post(post: schemas.PostIn, id: int, db: Session = Depends(utils.get_d
     else:
         return controllers.update_post(db, post, post_id=id)
 
-# Like post
-@app.put("/posts/{id}/like")
-def like_post(id: int, user_id: int, db: Session = Depends(utils.get_db)):
-    db_post = controllers.like_post(db, id, user_id)
-    return db_post
-
 
 # Delete post
 @app.delete("/posts/{id}")
