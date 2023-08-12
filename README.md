@@ -3,3 +3,4 @@ Main functions:
 - Add posts
 - Login & logout
 - Authenticate
+- Uploading
