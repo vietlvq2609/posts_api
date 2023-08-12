@@ -116,23 +116,6 @@ def update_post(db: Session, post: schemas.PostIn, post_id: int):
     db.refresh(db_post)
     return db_post
 
-def like_post(db: Session, post_id: int, user_id: int):
-    db_post = db.query(models.Post).filter(models.Post.id == post_id).first()
-
-    if not db_post:
-        return None
-
-    db_post = db_post.split(",")
-
-    if user_id in db_post.likes:
-        db_post.remove(user_id)
-    else:
-        db_post.push(user_id)
-
-    ",".join(db_post)
-    db.commit()
-    db.refresh(db_post)
-    return db_post
 
 def delete_post(db: Session, post_id: int):
     db_post = db.query(models.Post).filter(models.Post.id == post_id).first()
